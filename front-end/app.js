@@ -3,8 +3,7 @@ const userInput = document.getElementById('userInput');
 const outputBox = document.getElementById('output');
 const historyList = document.getElementById('historyList');
 const clearBtn = document.getElementById('clearHistoryBtn');
-const API_URL = 'https://neonprompt-backend.onrender.com';
-
+const API_URL = 'https://neonprompt-backend.onrender.com/api/enhance';
 // load saved history
 window.addEventListener('DOMContentLoaded', () => {
   const saved = JSON.parse(localStorage.getItem('promptHistory')) || [];
