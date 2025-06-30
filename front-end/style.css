@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0a0a0a;
+  color: #cfffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.flicker-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a0a, #101820, #0f2d3f);
+  background-size: 400% 400%;
+  animation: gradientFlow 18s ease infinite, flicker 4s infinite;
+  z-index: -1;
+}
+
+@keyframes gradientFlow {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 1; }
+  40% { opacity: 0.93; }
+  60% { opacity: 0.88; }
+  75% { opacity: 0.96; }
+}
+
+/* Layout grid */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  min-height: 100vh;
+  padding-top: 40px;
+  gap: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  align-items: start;
+}
+
+/* ABOUT box */
+.about-box, .history-box {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,255,200,0.1);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #aefcff;
+}
+
+.about-box h2, .history-box h2 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00ffe0;
+}
+
+/* Chat Box */
+.chat-box {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,255,200,0.1);
+  text-align: center;
+}
+
+.chat-box h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00ffe0;
+}
+
+.subhead {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.output-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 100px;
+  margin-bottom: 1rem;
+  color: #c0fefe;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+button {
+  margin-top: 10px;
+  background: #00bfbf;
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00e0d1;
+}
+
+/* HISTORY */
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  color: #bff;
+  font-size: 0.9rem;
+}
+
+#historyList li {
+  background: rgba(255,255,255,0.03);
+  padding: 0.5rem;
+  border-left: 2px solid #00ffe0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.clear-btn {
+  margin-top: 1rem;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #00ffe0;
+  color: #00ffe0;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.clear-btn:hover {
+  background: rgba(0,255,200,0.05);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255,255,255,0.02);
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.footer h2 {
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #00ffe0;
+}
+
+.footer a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Global Neon Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffe0, #0096c7);
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00ffd9, #00a8e8);
+}
+
+/* Specific: History Panel Scroll */
+#historyList::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffa2, #00bfff);
+}
+
+#historyList::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00ffcc, #00aaff);
+}
+
+/* Specific: Output Scroll (if needed) */
+.output-box::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffe0, #00cfff);
+}
+
+.output-box::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00ffed, #00b3ff);
+}
